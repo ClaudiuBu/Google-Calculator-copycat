@@ -1,0 +1,66 @@
+body{
+    background:repeating-linear-gradient(45deg,#fff,#000);
+}
+span{
+    display:inline-block;
+}
+
+h1{
+    color:white;
+    margin-left:50px;
+}
+.container-fluid{
+    padding:10%  8%;
+    text-align:center;
+}
+.calculator{
+    padding:5%;
+}
+
+#rezultat{
+    width:30px;
+    margin-left:630px;
+    font-size:2rem;
+}
+.btn{
+    margin:3px;
+    width:90px;
+    height:40px;
+    font-size:1rem;
+}
+.btn-lg{
+    padding:0.3rem 2rem;
+}
+.calculator{
+    padding:5% 12%;
+}
+.btn-grey{
+    background-color:#ccc;
+}
+.btn-grey:hover{
+    transition:0.5s;
+    background-color:#bbb;
+}
+
+.red{
+    color: #dc3545;
+}
+.blue{
+    color:#007bff;
+}
+.yellow{
+    color:#ffc107;
+}
+.green{
+    color:#28a745;
+}
+
+
+
+/* ID SELECTORS */
+#content{
+    height:100vh;
+}
+#rezultat{
+    color:white;
+}
