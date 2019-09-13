@@ -19,7 +19,7 @@ h1{
 
 #rezultat{
     width:30px;
-    margin-left:630px;
+    margin-left:680px;
     font-size:2rem;
 }
 .btn{
@@ -39,7 +39,7 @@ h1{
 }
 .btn-grey:hover{
     transition:0.5s;
-    background-color:#bbb;
+    background-color:#aaa;
 }
 
 .red{
@@ -63,4 +63,9 @@ h1{
 }
 #rezultat{
     color:white;
+}
+#operatie{
+    color:white;
+    font-size:1rem;
+    margin-left:500px;
 }
