@@ -16,6 +16,13 @@
     <!-- My style -->
     <link rel="stylesheet" href="css/styles.css">
 
+    <!-- My Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script>
+
+    
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/80d03d05fc.js"></script>
+
     <!-- My Scripts -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -26,6 +33,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+    
 
 </head>
 
@@ -47,30 +56,37 @@
                 </div>
             </div>
             <div class="container calculator">
-                <p id="rezultat">0</p>
-
-
+                <div class="container display">
+                    <div class="history">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <div class="container prior-op">
+                        <p class="prior-operation">Prior Op</p>
+                    </div>
+                    <div class="container prior-op">
+                        <p id="rezultat">0</p>
+                    </div>
+                </div>
                 <!-- Butoane HTML Calculator -->
-
-                <div class="container">
+                <div class="container butoane">
                     <div class="row">
                         <div class="col-2"></div>
                         <!-- <button class="">oper</button>
                             <button class="">oper</button>
                             <button class="">oper</button> -->
-                        <button class="btn btn-grey btn-lg number ">Deg</button>
-                        <button class="btn btn-grey btn-lg number ">x!</button>
+                        <button class="btn btn-grey btn-lg operator ">Deg</button>
+                        <button class="btn btn-grey btn-lg operator ">x!</button>
                         <button class="btn btn-grey btn-lg  operator ">(</button>
                         <button class="btn btn-grey btn-lg  operator ">)</button>
                         <button class="btn btn-grey btn-lg  operator">%</button>
-                        <button class="btn btn-grey btn-lg operator">C</button>
+                        <button class="btn btn-grey btn-lg  erase operator">C</button>
 
 
                     </div>
                     <div class="row">
                         <div class="col-2"></div>
-                        <button class="btn btn-grey btn-lg number ">sin</button>
-                        <button class="btn btn-grey btn-lg number ">ln</button>
+                        <button class="btn btn-grey btn-lg operator ">sin</button>
+                        <button class="btn btn-grey btn-lg operator ">ln</button>
                         <button class="btn btn-light btn-lg number ">7</button>
                         <button class="btn btn-light btn-lg number ">8</button>
                         <button class="btn btn-light btn-lg number">9</button>
@@ -79,8 +95,8 @@
                     </div>
                     <div class="row">
                         <div class="col-2"></div>
-                        <button class="btn btn-grey btn-lg number ">cos</button>
-                        <button class="btn btn-grey btn-lg number ">log</button>
+                        <button class="btn btn-grey btn-lg operator ">cos</button>
+                        <button class="btn btn-grey btn-lg operator ">log</button>
                         <button class="btn btn-light btn-lg number ">4</button>
                         <button class="btn btn-light btn-lg number">5</button>
                         <button class="btn btn-light btn-lg number">6</button>
@@ -88,8 +104,8 @@
                     </div>
                     <div class="row">
                         <div class="col-2"></div>
-                        <button class="btn btn-grey btn-lg number ">tan</button>
-                        <button class="btn btn-grey btn-lg number ">&radic;</button>
+                        <button class="btn btn-grey btn-lg operator ">tan</button>
+                        <button class="btn btn-grey btn-lg operator ">&radic;</button>
                         <button class="btn btn-light btn-lg number ">1</button>
                         <button class="btn btn-light btn-lg number">2</button>
                         <button class="btn btn-light btn-lg number">3</button>
@@ -97,8 +113,8 @@
                     </div>
                     <div class="row">
                         <div class="col-2"></div>
-                        <button class="btn btn-grey btn-lg number ">EXP</button>
-                        <button class="btn btn-grey btn-lg number ">x<sup>y</sup></button>
+                        <button class="btn btn-grey btn-lg operator ">e<sup>x</sup></button>
+                        <button class="btn btn-grey btn-lg operator ">x<sup>y</sup></button>
                         <button class="btn btn-light btn-lg number">0</button>
                         <button class="btn btn-light btn-lg number">.</button>
                         <button class="btn btn-primary btn-lg egal-operator">=</button>

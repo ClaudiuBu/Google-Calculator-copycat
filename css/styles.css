@@ -1,3 +1,5 @@
+/* TAG Selectors */
+
 body{
     background:repeating-linear-gradient(45deg,#fff,#000);
 }
@@ -9,17 +11,58 @@ h1{
     color:white;
     margin-left:50px;
 }
-.container-fluid{
+i{
+    color:#aaa;
+    transform: rotate(-45deg);
+}
+i:hover{
+    transition:1s;
+    transform:rotate(360deg);
+}
+
+        /* Class Selectors */
+
+
+.container{
+    width:95%;
+    margin-top:10px;
+}
+
+ .container-fluid{
     padding:10%  8%;
     text-align:center;
 }
+.history{
+    display:inline-block;
+    text-align:left;
+}
+.prior-op{
+    margin-right:0px;
+    padding:0px;
+    width:84.5%;
+    display:inline-block;
+}
+.display{
+    width:71%;
+    margin-right:10%;
+    background-color:#fff;
+    border:1px solid #007bff;
+    border-radius:10px;
+}
+.prior-operation{
+    margin-bottom:0px;
+    text-align:right;
+    /* padding-left:58%; */
+    color:#aaa;
+    font-size:1.3rem;
+}
 .calculator{
     padding:5%;
+    margin:0 auto;
 }
 
 #rezultat{
-    width:30px;
-    margin-left:680px;
+    text-align:right;
     font-size:2rem;
 }
 .btn{
@@ -58,14 +101,22 @@ h1{
 
 
 /* ID SELECTORS */
-#content{
-    height:100vh;
-}
+
 #rezultat{
-    color:white;
+    color:#000;
+    font-weight: 400;
 }
-#operatie{
+/* #operatie{
     color:white;
     font-size:1rem;
-    margin-left:500px;
+    /* margin-left:500px; } */
+
+
+
+/* Breaking points */
+
+@media (min-width:1700px){
+    .prior-operation{
+        /* padding-left:70%; */
+    }
 }
