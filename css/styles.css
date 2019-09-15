@@ -11,6 +11,12 @@ h1{
     color:white;
     margin-left:50px;
 }
+h3{
+    text-align:center;
+    color:#aaa;
+    font-weight: 300;
+    font-size:1.5rem;
+}
 i{
     color:#aaa;
     transform: rotate(-45deg);
@@ -19,7 +25,28 @@ i:hover{
     transition:1s;
     transform:rotate(360deg);
 }
+footer{
+    text-align:center;
+}
+ul{
+    
+}
+li{
+    display:inline-block;
+    padding:10px;
+}
 
+/* td{
+    color:#007bff;
+    padding:0;
+    box-sizing: border-box;
+    border:1px solid grey;
+
+}
+td:hover{
+    transition:0.5s;
+    background-color:#ddd;
+} */
         /* Class Selectors */
 
 
@@ -38,9 +65,49 @@ i:hover{
 }
 .prior-op{
     margin-right:0px;
+    margin-top:0px;
     padding:0px;
     width:84.5%;
     display:inline-block;
+}
+
+.container-history{
+    padding:0px!important;
+    margin-top:10px;
+    left:450px;
+    z-index:1;
+    display:inline-block;
+    width:300px;
+    position:absolute;
+    background-color:white;
+    visibility: hidden;
+    scroll-behavior: smooth;
+    overflow-y:auto;
+    text-align:left;
+}
+.history-max-height{
+    height:300px;
+}
+.history-header-container{
+    height:35px;
+    background:repeating-linear-gradient(45deg,#fff,transparent),repeating-linear-gradient(180deg,#bbb,transparent);
+    border-bottom:1px #aaa solid;
+    
+}
+.history-content{
+    padding-top:10px;
+    padding-left:15px;
+}
+.history-footer{
+    height:20px;
+}
+.history-content p{
+    padding:10px;
+    margin-top:10px;
+   
+}
+.container-history p{
+    color:#007bff;
 }
 .display{
     width:71%;
@@ -48,13 +115,27 @@ i:hover{
     background-color:#fff;
     border:1px solid #007bff;
     border-radius:10px;
+    display:inline-block;
+}
+.visible{
+    visibility: visible;
 }
 .prior-operation{
     margin-bottom:0px;
     text-align:right;
     /* padding-left:58%; */
     color:#aaa;
-    font-size:1.3rem;
+    font-size:1.1rem;
+}
+.fa-history{
+    z-index:2;
+    position:relative;
+}
+.fa-history:hover{
+    color:#333;
+}
+.prior-operation p{
+    margin-top:10px;
 }
 .calculator{
     padding:5%;
@@ -105,7 +186,9 @@ i:hover{
 #rezultat{
     color:#000;
     font-weight: 400;
+    margin-bottom:0px;
 }
+
 /* #operatie{
     color:white;
     font-size:1rem;
@@ -115,6 +198,20 @@ i:hover{
 
 /* Breaking points */
 
+
+@media  (max-width:468px) {}
+@media  (max-width:768px) {}
+@media  (max-width:992px) {}
+@media  (min-width:1200px) {
+    .container-fluid{
+        padding:6.5% 8%;
+    }
+    .display{
+        padding:0;
+        margin-left:17%;
+        width:69.9%;
+    }
+}
 @media (min-width:1700px){
     .prior-operation{
         /* padding-left:70%; */
