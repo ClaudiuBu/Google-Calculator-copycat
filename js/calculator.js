@@ -6,13 +6,15 @@ var rezultat = document.getElementById("rezultat");
 var operatieActuala = document.getElementById("operatie");
 var egal = document.querySelector(".egal-operator");
 var historyOperatorBtn = document.querySelector(".fa-history");
+var cellButton = document.querySelectorAll(".cell");
 
-
-
-
-var
+var priorOperationResult,
     firstNumber,
     secondNumber,
+    cellResult,
+    cellFirstNumber,
+    cellSecondNumber,
+    cellOperant,
     oldNumber = "",
     newNumber = "",
     operator,
@@ -20,8 +22,8 @@ var
     total = 1,
     alesOperator = false,
     on = 1
-    rowNum=0,
-    cellNum=0;
+rowNum = 0,
+    cellNum = 0;
 
 for (var i = 0; i < botoaneNumere.length; i++) {
 
@@ -97,18 +99,26 @@ egal.addEventListener("click", function () {
     compute(firstNumber, secondNumber, operatorGlobal);
     moveOperations();
     showResult(total);
+    firstNumber = total;
     addNode();
+    
     logicFlows();
+
+    //
+    //If user is pressing afterwards button do the following
+    //Else if the user is pressing operator ia rezultatul si da-l la primulnumar ca valoare
+
+    //Gandeste-te daca mai sunt si alte posibilitati
 })
 
 
 historyOperatorBtn.addEventListener("click", function () {
     toggleHistoryContainer();
-    
+
 
 });
 
-function toggleHistoryContainer(){
+function toggleHistoryContainer() {
     switch (on) {
         case 0:
             document.querySelector(".container-history").classList.remove("visible");
@@ -123,46 +133,48 @@ function toggleHistoryContainer(){
     }
 }
 
-function addNode(){
-var result,body;
-    result=total;
-    body=firstNumber+operatorGlobal+secondNumber;
-    equal=" = ";
+function addNode() {
+    var result, body;
+    result = total;
+    body = priorOperationResult;
+    equal = " = ";
 
-    rowNum++;cellNum++;
+    rowNum++; cellNum++;
 
-    var rowClass="row_"+rowNum.toString();
-    var cellClass="cell_"+cellNum.toString();
+    var rowClass = "row_" + rowNum.toString();
+    var cellClass = "cell_" + cellNum.toString();
     cellNum++;
-    var cellClass2="cell_"+cellNum.toString();
+    var cellClass2 = "cell_" + cellNum.toString();
     cellNum++;
-    var cellClass3="cell_"+cellNum.toString();
+    var cellClass3 = "cell cell_" + cellNum.toString();
 
-var node = document.createElement("tr");
-node.className =rowClass;
+    var node = document.createElement("tr");
+    node.className = rowClass;
 
-var childNode = document.createElement("td");
-var childNode2 = document.createElement("td");
-var childNode3 = document.createElement("p");
+    var childNode = document.createElement("td");
+    var childNode2 = document.createElement("td");
+    var childNode3 = document.createElement("p");
 
-childNode.className =  cellClass;
-childNode2.className= cellClass3;
-childNode3.className= cellClass2;
-
-
-//var textnode = document.createTextNode(firstNumber+" "+operatorGlobal+" "+secondNumber+" = "+total);
-var textnodeLeft = document.createTextNode(body);
-var textnodeRight = document.createTextNode(result);
-var textnodeBetween = document.createTextNode(equal);
+    childNode.className = cellClass;
+    childNode2.className = cellClass3;
+    childNode3.className = cellClass2;
 
 
-document.querySelector("table").appendChild(node);
-document.querySelector("."+rowClass).appendChild(childNode);
-document.querySelector("."+rowClass).appendChild(childNode3);
-document.querySelector("."+rowClass).appendChild(childNode2);
-childNode.appendChild(textnodeLeft);
-childNode2.appendChild(textnodeRight);
-childNode3.appendChild(textnodeBetween);
+    //var textnode = document.createTextNode(firstNumber+" "+operatorGlobal+" "+secondNumber+" = "+total);
+    var textnodeLeft = document.createTextNode(body);
+    var textnodeRight = document.createTextNode(result);
+    var textnodeBetween = document.createTextNode(equal);
+
+
+    document.querySelector("table").appendChild(node);
+    document.querySelector("." + rowClass).appendChild(childNode);
+    document.querySelector("." + rowClass).appendChild(childNode3);
+    document.querySelector("." + rowClass).appendChild(childNode2);
+    childNode.appendChild(textnodeLeft);
+    childNode2.appendChild(textnodeRight);
+    childNode3.appendChild(textnodeBetween);
+    cellButton = document.querySelectorAll(".cell");
+    addListenerForCells();
 }
 
 //Functii;
@@ -225,6 +237,23 @@ function logicFlows() {
         document.querySelector(".erase").click();
     }
 }
+
+//take  operatior or result from cell and move it to display;
+function addListenerForCells() {
+    for (var i = 0; i < cellButton.length; i++) {
+        cellButton[i].addEventListener("click", function () {
+            
+            cellResult = this.innerHTML;
+            alert("Detectez click"+cellResult);
+            console.log(cellResult);
+            firstNumber = parseInt(cellResult,10);
+            showResult(firstNumber);
+
+        })
+    }
+}
+
 function moveOperations() {
-    document.querySelector(".prior-operation").innerHTML = rezultat.innerHTML + " = ";
+    priorOperationResult = rezultat.innerHTML;
+    document.querySelector(".prior-operation").innerHTML =priorOperationResult+" = ";
 }

@@ -74,7 +74,7 @@ td:hover{
 .container-history{
     padding:0px!important;
     margin-top:10px;
-    left:450px;
+    left:420px;
     z-index:1;
     display:inline-block;
     width:300px;
@@ -84,6 +84,12 @@ td:hover{
     scroll-behavior: smooth;
     overflow-y:auto;
     text-align:left;
+    max-height:320px;
+}
+
+.cell:hover{
+    color:#007bff;
+    cursor:pointer;
 }
 .history-max-height{
     height:300px;
@@ -199,10 +205,68 @@ td:hover{
 /* Breaking points */
 
 
-@media  (max-width:468px) {}
-@media  (max-width:768px) {}
-@media  (max-width:992px) {}
-@media  (min-width:1200px) {
+@media  (min-width:468px) {}
+@media  (max-width:768px) {
+    .container{
+        padding:2% 0%;
+    }
+    .container-fluid{
+        padding:2%;
+    }
+    .title{
+        padding-top:10%;
+    }
+    .display{
+        padding:0;
+        margin:0 auto;
+        width:82%;
+       
+    }
+    .butoane{
+        margin-top:100px;
+        position:relative;
+        right:58px;
+    }
+    #footer{
+        margin-top:26%;
+    }
+}
+@media  (max-width:992px) {
+    .container{
+        padding:1% 0%;
+    
+    }
+
+    /* .container-fluid{
+        padding:20% 8%;
+    } */
+    /* .calculator{
+        padding:1% 0%;
+    } */
+    .display{
+        padding:0;
+        margin:0 auto;
+        width:69.9%;
+    }
+    .butoane{
+        position:relative;
+        left:10px;
+        margin-top:100px;
+
+    }
+    .title{
+        margin:100px 0px;
+        text-align:center;
+    }
+    .container-history{
+        left:250px;
+    }
+    #footer{
+        margin-top:45%;
+    }
+    
+}
+@media  (max-width:1200px) {
     .container-fluid{
         padding:6.5% 8%;
     }
@@ -212,8 +276,31 @@ td:hover{
         width:69.9%;
     }
 }
+@media  (max-width:1200px) {
+    .container-fluid{
+        padding:6% 8%;
+    }
+    .display{
+        position:relative;
+        padding:0;
+        margin:0 auto;
+        width:69.9%;
+    }
+    .butoane{
+        position:relative;
+        left:60px;
+    }
+    #footer{
+        margin-top:0;
+    }
+}
 @media (min-width:1700px){
-    .prior-operation{
-        /* padding-left:70%; */
+    .container-fluid{
+        padding:5% 8%;
+    }
+    .display{
+        padding:0;
+        margin-left:18.5%;
+        width:72.5%;
     }
 }
