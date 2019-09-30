@@ -1,7 +1,35 @@
 /* TAG Selectors */
 
 body{
-    background:repeating-linear-gradient(45deg,#fff,#000);
+    background: linear-gradient(0deg, #007bff, #dc3545, #edbe21, #4bb067);
+    background-size: 800% 800%;
+    
+    -webkit-animation: Google-gradient 11s ease infinite;
+    -moz-animation: Google-gradient 11s ease infinite;
+    -o-animation: Google-gradient 11s ease infinite;
+    animation: Google-gradient 11s ease infinite;
+}
+
+    
+@-webkit-keyframes Google-gradient {
+    0%{background-position:9% 0%}
+    50%{background-position:92% 100%}
+    100%{background-position:9% 0%}
+}
+@-moz-keyframes Google-gradient {
+    0%{background-position:9% 0%}
+    50%{background-position:92% 100%}
+    100%{background-position:9% 0%}
+}
+@-o-keyframes Google-gradient {
+    0%{background-position:9% 0%}
+    50%{background-position:92% 100%}
+    100%{background-position:9% 0%}
+}
+@keyframes Google-gradient {
+    0%{background-position:9% 0%}
+    50%{background-position:92% 100%}
+    100%{background-position:9% 0%}
 }
 span{
     display:inline-block;
@@ -17,14 +45,6 @@ h3{
     font-weight: 300;
     font-size:1.5rem;
 }
-i{
-    color:#aaa;
-    transform: rotate(-45deg);
-}
-i:hover{
-    transition:1s;
-    transform:rotate(360deg);
-}
 footer{
     text-align:center;
 }
@@ -34,6 +54,9 @@ ul{
 li{
     display:inline-block;
     padding:10px;
+}
+p{
+    color:#fff;
 }
 
 /* td{
@@ -47,6 +70,8 @@ td:hover{
     transition:0.5s;
     background-color:#ddd;
 } */
+
+
         /* Class Selectors */
 
 
@@ -62,6 +87,14 @@ td:hover{
 .history{
     display:inline-block;
     text-align:left;
+}
+.history i{
+    color:#aaa;
+    transform: rotate(-45deg);
+}
+.history i:hover{
+    transition:1s;
+    transform:rotate(360deg);
 }
 .prior-op{
     margin-right:0px;
@@ -162,7 +195,7 @@ td:hover{
     padding:0.3rem 2rem;
 }
 .calculator{
-    padding:5% 12%;
+    padding:5% 3%;
 }
 .btn-grey{
     background-color:#ccc;
@@ -194,7 +227,9 @@ td:hover{
     font-weight: 400;
     margin-bottom:0px;
 }
-
+#content{
+    height:90vh;
+}
 /* #operatie{
     color:white;
     font-size:1rem;
@@ -245,17 +280,16 @@ td:hover{
     } */
     .display{
         padding:0;
-        margin:0 auto;
-        width:69.9%;
+        margin-left:18%;
+        width:%;
     }
     .butoane{
         position:relative;
         left:10px;
-        margin-top:100px;
 
     }
     .title{
-        margin:100px 0px;
+        margin:100px 0px 0px 0px;
         text-align:center;
     }
     .container-history{
@@ -266,25 +300,16 @@ td:hover{
     }
     
 }
-@media  (max-width:1200px) {
-    .container-fluid{
-        padding:6.5% 8%;
-    }
-    .display{
-        padding:0;
-        margin-left:17%;
-        width:69.9%;
-    }
-}
-@media  (max-width:1200px) {
+
+@media  (min-width:1200px) {
     .container-fluid{
         padding:6% 8%;
     }
     .display{
         position:relative;
         padding:0;
-        margin:0 auto;
-        width:69.9%;
+        margin-left:13%;
+        width:54%;
     }
     .butoane{
         position:relative;
@@ -300,7 +325,7 @@ td:hover{
     }
     .display{
         padding:0;
-        margin-left:18.5%;
-        width:72.5%;
+        margin-left:13%;
+        width:54%;
     }
 }
