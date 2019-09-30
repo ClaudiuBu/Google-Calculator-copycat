@@ -218,6 +218,10 @@ td:hover{
     color:#28a745;
 }
 
+.social-icons li, .social-icons i{
+    color:#fff;
+}
+
 
 
 /* ID SELECTORS */

@@ -22,7 +22,7 @@ var priorOperationResult,
     total = 1,
     alesOperator = false,
     on = 1
-rowNum = 0,
+    rowNum = 0,
     cellNum = 0;
 
 for (var i = 0; i < botoaneNumere.length; i++) {
@@ -85,6 +85,11 @@ for (i = 0; i < butoaneOperatori.length; i++) {
                 total = Math.log(firstNumber);
                 showResult(total);
                 break;
+            case '√':
+                console.log("Ai ajuns in functia radical");
+                total = Math.sqrt(firstNumber);
+                showResult(total);
+            break;
 
 
         }
@@ -94,7 +99,9 @@ for (i = 0; i < butoaneOperatori.length; i++) {
 
 
 egal.addEventListener("click", function () {
+    if(firstNumber != 0){
 
+    
     console.log(operatorGlobal);
     compute(firstNumber, secondNumber, operatorGlobal);
     moveOperations();
@@ -103,6 +110,10 @@ egal.addEventListener("click", function () {
     addNode();
     
     logicFlows();
+}
+else{
+    return;
+}
 
     //
     //If user is pressing afterwards button do the following
@@ -211,6 +222,7 @@ function compute(arg1, arg2, arg3) {
             total = (arg1 * arg2) / 100;
             console.log("Ajunge in functia procent");
             break;
+
 
 
         default:
