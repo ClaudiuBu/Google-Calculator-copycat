@@ -81,32 +81,20 @@ for (i = 0; i < butoaneOperatori.length; i++) {
                 firstNumber = Math.exp(firstNumber);
                 break;
             case 'x!':
-                rezultat.innerHTML = firstNumber + "!";
+                rezultat.innerHTML =firstNumber + "!";
                 firstNumber = permutari(firstNumber, total);
 
                 break;
-            case 'ln':
+            case 'ln','√','log','sin','cos','tan','EXP':
                     if (firstNumber == undefined || firstNumber ==0) {
-
+                        rezultat.innerHTML=" ";
                         firstNumber = 1;
-                        rezultat.innerHTML = "ln(";
+                        rezultat.innerHTML = operator;
                     }
                     else {
-                        rezultat.innerHTML = firstNumber + "ln(";
+                        rezultat.innerHTML = firstNumber +operator;
                     }
                 break;
-            case '√':
-                if (firstNumber == undefined || firstNumber ==0) {
-                    firstNumber =1;
-                    rezultat.innerHTML = "√";
-                }
-                else {
-                    rezultat.innerHTML = firstNumber + "√";
-                }
-                break;
-                break;
-
-
         }
 
     })
@@ -251,6 +239,23 @@ function compute(arg1, arg2, arg3) {
             console.log(arg1);
             console.log(arg1 +" "+ arg2+" "+ total);
             break;
+         case 'log':
+            total = arg1* Math.log2(arg2);
+            console.log(arg1);
+            console.log(arg1 +" "+ arg2+" "+ total);
+            break;
+        case 'sin':
+            total = arg1* Math.sin(arg2);
+            break;
+        case 'cos':
+            total = arg1* Math.sin(arg2);
+            break;
+        case 'tan':
+            total = arg1* Math.tan(arg2);
+            break;
+        case 'EXP':
+            total = Math.pow(arg1, arg2);
+            break;
         default:
             console.log("Am ajuns in default switch");
             total = arg1;
@@ -276,7 +281,6 @@ function logicFlows() {
         document.querySelector(".erase").click();
     }
 }
-
 //take  operatior or result from cell and move it to display;
 function addListenerForCells() {
     for (var i = 0; i < cellButton.length; i++) {
