@@ -22,7 +22,7 @@ var priorOperationResult,
     total = 1,
     alesOperator = false,
     on = 1
-    rowNum = 0,
+rowNum = 0,
     cellNum = 0;
 
 for (var i = 0; i < botoaneNumere.length; i++) {
@@ -57,6 +57,7 @@ for (i = 0; i < butoaneOperatori.length; i++) {
 
 
         var operator = this.innerHTML;
+
         operatorGlobal = operator;
         rezultat.innerHTML = rezultat.innerHTML + operator;
         oldNumber = "";
@@ -69,27 +70,41 @@ for (i = 0; i < butoaneOperatori.length; i++) {
             case 'C':
                 oldNumber = "";
                 newNumber = "";
+                firstNumber = 0;
+                secondNumber = 0;
                 total = 1;
                 rezultat.innerHTML = "0";
                 alesOperator = false;
                 break;
             case 'e<sup>x</sup>':
-                total = Math.exp(firstNumber);
-                showResult(total);
+                rezultat.innerHTML = "e<sup>x</sup>" + firstNumber;
+                firstNumber = Math.exp(firstNumber);
                 break;
             case 'x!':
-                total = permutari(firstNumber, total);
-                showResult(total);
+                rezultat.innerHTML = firstNumber + "!";
+                firstNumber = permutari(firstNumber, total);
+
                 break;
             case 'ln':
-                total = Math.log(firstNumber);
-                showResult(total);
+                    if (firstNumber == undefined || firstNumber ==0) {
+
+                        firstNumber = 1;
+                        rezultat.innerHTML = "ln(";
+                    }
+                    else {
+                        rezultat.innerHTML = firstNumber + "ln(";
+                    }
                 break;
             case '√':
-                console.log("Ai ajuns in functia radical");
-                total = Math.sqrt(firstNumber);
-                showResult(total);
-            break;
+                if (firstNumber == undefined || firstNumber ==0) {
+                    firstNumber =1;
+                    rezultat.innerHTML = "√";
+                }
+                else {
+                    rezultat.innerHTML = firstNumber + "√";
+                }
+                break;
+                break;
 
 
         }
@@ -99,21 +114,21 @@ for (i = 0; i < butoaneOperatori.length; i++) {
 
 
 egal.addEventListener("click", function () {
-    if(firstNumber != 0){
+    if (firstNumber != NaN) {
 
-    
-    console.log(operatorGlobal);
-    compute(firstNumber, secondNumber, operatorGlobal);
-    moveOperations();
-    showResult(total);
-    firstNumber = total;
-    addNode();
-    
-    logicFlows();
-}
-else{
-    return;
-}
+
+        console.log(operatorGlobal);
+        compute(firstNumber, secondNumber, operatorGlobal);
+        moveOperations();
+        showResult(total);
+        firstNumber = total;
+        addNode();
+
+        logicFlows();
+    }
+    else {
+        return;
+    }
 
     //
     //If user is pressing afterwards button do the following
@@ -199,9 +214,13 @@ function compute(arg1, arg2, arg3) {
     console.log("Primul numar" + arg1 + "Al doilea numar " + arg2 + " Iar operantul este" + arg3);
     switch (arg3) {
         case '+':
-            total = parseInt(arg1, 10) + parseInt(arg2, 10);
-            console.log("ajunge la compute de adunare si totatlul este " + total);
-            break;
+            if (arg1 != NaN && arg2 != NaN) {
+                total = parseInt(arg1, 10) + parseInt(arg2, 10);
+                console.log("ajunge la compute de adunare si totatlul este " + total);
+                break;
+            }
+            else
+                return;
         case '−':
             total = parseInt(arg1, 10) - parseInt(arg2, 10);
             console.log("ajunge la compute de scadere si totatlul este " + total);
@@ -222,11 +241,19 @@ function compute(arg1, arg2, arg3) {
             total = (arg1 * arg2) / 100;
             console.log("Ajunge in functia procent");
             break;
+        case '√':
+            total = arg1 * Math.sqrt(arg2);
+            console.log("Ai ajuns in functia radical");
+            break;
+        case 'ln': 
 
-
-
+            total = arg1* Math.log(arg2);
+            console.log(arg1);
+            console.log(arg1 +" "+ arg2+" "+ total);
+            break;
         default:
-            rezultat.innerHTML = parseInt(arg1, 10) + parseInt(arg2, 10);
+            console.log("Am ajuns in default switch");
+            total = arg1;
     }
 
 }
@@ -254,11 +281,11 @@ function logicFlows() {
 function addListenerForCells() {
     for (var i = 0; i < cellButton.length; i++) {
         cellButton[i].addEventListener("click", function () {
-            
+
             cellResult = this.innerHTML;
-            alert("Detectez click"+cellResult);
+            alert("Detectez click" + cellResult);
             console.log(cellResult);
-            firstNumber = parseInt(cellResult,10);
+            firstNumber = parseInt(cellResult, 10);
             showResult(firstNumber);
 
         })
@@ -267,5 +294,5 @@ function addListenerForCells() {
 
 function moveOperations() {
     priorOperationResult = rezultat.innerHTML;
-    document.querySelector(".prior-operation").innerHTML =priorOperationResult+" = ";
+    document.querySelector(".prior-operation").innerHTML = priorOperationResult + " = ";
 }
