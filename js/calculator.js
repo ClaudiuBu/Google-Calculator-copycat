@@ -65,35 +65,44 @@ for (i = 0; i < butoaneOperatori.length; i++) {
         console.log("Operator " + operator);
         alesOperator = true;
 
+        if(alesOperator ==true && firstNumber == undefined)firstNumber =1;
 
         switch (operator) {
             case 'C':
+                console.log("Ajung in functia de stergere");
                 oldNumber = "";
                 newNumber = "";
-                firstNumber = 0;
+                firstNumber = 1;
                 secondNumber = 0;
                 total = 1;
                 rezultat.innerHTML = "0";
                 alesOperator = false;
                 break;
             case 'e<sup>x</sup>':
+                console.log("Ajung in functia de stergere");
                 rezultat.innerHTML = "e<sup>x</sup>" + firstNumber;
                 firstNumber = Math.exp(firstNumber);
                 break;
             case 'x!':
-                rezultat.innerHTML =firstNumber + "!";
+                rezultat.innerHTML = firstNumber + "!";
                 firstNumber = permutari(firstNumber, total);
 
                 break;
-            case 'ln','√','log','sin','cos','tan','EXP':
-                    if (firstNumber == undefined || firstNumber ==0) {
-                        rezultat.innerHTML=" ";
-                        firstNumber = 1;
-                        rezultat.innerHTML = operator;
-                    }
-                    else {
-                        rezultat.innerHTML = firstNumber +operator;
-                    }
+            case 'ln':
+            case '√':
+            case 'log':
+            case 'sin':
+            case 'cos':
+            case 'tan':
+            case 'EXP':
+                if (firstNumber == undefined || firstNumber == 0 || firstNumber == 1) {
+                    firstNumber = 1;
+                    rezultat.innerHTML = " " + operator;
+                    console.log(rezultat.innerHTML);
+                }
+                else {
+                    rezultat.innerHTML = firstNumber + operator;
+                }
                 break;
         }
 
@@ -233,25 +242,25 @@ function compute(arg1, arg2, arg3) {
             total = arg1 * Math.sqrt(arg2);
             console.log("Ai ajuns in functia radical");
             break;
-        case 'ln': 
+        case 'ln':
 
-            total = arg1* Math.log(arg2);
+            total = arg1 * Math.log(arg2);
             console.log(arg1);
-            console.log(arg1 +" "+ arg2+" "+ total);
+            console.log(arg1 + " " + arg2 + " " + total);
             break;
-         case 'log':
-            total = arg1* Math.log2(arg2);
+        case 'log':
+            total = arg1 * Math.log2(arg2);
             console.log(arg1);
-            console.log(arg1 +" "+ arg2+" "+ total);
+            console.log(arg1 + " " + arg2 + " " + total);
             break;
         case 'sin':
-            total = arg1* Math.sin(arg2);
+            total = arg1 * Math.sin(arg2);
             break;
         case 'cos':
-            total = arg1* Math.sin(arg2);
+            total = arg1 * Math.sin(arg2);
             break;
         case 'tan':
-            total = arg1* Math.tan(arg2);
+            total = arg1 * Math.tan(arg2);
             break;
         case 'EXP':
             total = Math.pow(arg1, arg2);

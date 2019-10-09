@@ -221,8 +221,28 @@ td:hover{
 .social-icons li, .social-icons i{
     color:#fff;
 }
+.footer-paragraph{
+    height:50px;
+    text-align:center;
+    margin-left:40px;
+}
+span.heart{
+    color:red;
+    font-size:20px;
+    animation: infinite 1s grow-heart-grow;
 
-
+}
+@keyframes grow-heart-grow{
+    0%{
+        font-size:20px;
+    }
+    50%{
+        font-size:25px;
+    }
+    100%{
+        font-size:20px;
+    }
+}
 
 /* ID SELECTORS */
 
