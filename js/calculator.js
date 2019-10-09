@@ -65,8 +65,7 @@ for (i = 0; i < butoaneOperatori.length; i++) {
         console.log("Operator " + operator);
         alesOperator = true;
 
-        if(alesOperator ==true && firstNumber == undefined)firstNumber =1;
-
+        if(alesOperator ==true && firstNumber ==undefined)firstNumber =1;
         switch (operator) {
             case 'C':
                 console.log("Ajung in functia de stergere");

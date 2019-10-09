@@ -119,8 +119,13 @@ td:hover{
     text-align:left;
     max-height:320px;
 }
+.cell{
+    color: blue;
 
+}
 .cell:hover{
+    transition:1s;
+    font-size:18px;
     color:#007bff;
     cursor:pointer;
 }
